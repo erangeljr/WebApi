@@ -1,11 +1,13 @@
 ﻿using System.Net.Http;
 using System.Web.Http;
+using WebApi.Web.Common;
 using WebApi.Web.Common.Routing;
 using WebApi.Web.Api.Models;
 
 namespace WebApi.Web.Api.Controllers.V1
 {
     [ApiVersion1RoutePrefix("tasks")]
+    [UnitOfWorkActionFilter]
     public class TasksController : ApiController
     {
         [Route("", Name = "AddTaskRoute")]

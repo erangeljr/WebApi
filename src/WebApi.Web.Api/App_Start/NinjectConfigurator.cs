@@ -9,6 +9,7 @@ using WebApi.Common.Logging;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using WebApi.Data.SqlServer.Mapping;
+using WebApi.Web.Common;
 
 namespace WebApi.Web.Api
 {
@@ -44,6 +45,7 @@ namespace WebApi.Web.Api
 
             container.Bind<ISessionFactory>().ToConstant(sessionFactory);
             container.Bind<ISession>().ToMethod(CreateSession).InRequestScope();
+            container.Bind<IActionTransactionHelper>().To<ActionTransactionHelper>().InRequestScope();
         }
 
         private ISession CreateSession(IContext context)
