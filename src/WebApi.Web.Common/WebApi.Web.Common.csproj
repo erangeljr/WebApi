@@ -56,6 +56,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
@@ -72,6 +73,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionTransactionHelper.cs" />
+    <Compile Include="ErrorHandling\GlobalExceptionHandler.cs" />
+    <Compile Include="ErrorHandling\SimpleErrorResult.cs" />
     <Compile Include="ErrorHandling\SimpleExceptionLogger.cs" />
     <Compile Include="IActionTransactionHelper.cs" />
     <Compile Include="NamespaceHttpControllerSelector.cs" />
@@ -90,6 +93,10 @@
     <ProjectReference Include="..\WebApi.Common\WebApi.Common.csproj">
       <Project>{e8ef45de-b930-4fe9-9137-d9188c700cf5}</Project>
       <Name>WebApi.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApi.Data\WebApi.Data.csproj">
+      <Project>{a902a754-071a-4d86-afb8-23e4a8e9185c}</Project>
+      <Name>WebApi.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
